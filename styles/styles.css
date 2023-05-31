@@ -5,7 +5,13 @@
 body {
     background-color: #222;
     height: 500px;
-    color: red;
+    background: #222 url("/img/background.png") repeat scroll left top;
+}
+
+h1 {
+    color: #be3126;
+    text-shadow: 1px 1px 1px #111;
+    text-align: center;
 }
 
 #interface {
@@ -88,6 +94,7 @@ body {
 #spell-stats div h3{
     margin: 5px;
     font-size: 12px;
+    font-weight: normal;
 }
 
 .btn {
