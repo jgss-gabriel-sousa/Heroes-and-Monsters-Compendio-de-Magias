@@ -21,43 +21,70 @@ h1 {
 }
 #list {
     width: 50%;
+}
+#filters{
+    padding: 10px;
+}
+#filters input{
+    padding: 5px;
+}
+#filters small{
+    color: #be3126;
+}
+#spell-list {
     height: 100%;
-    margin: 10px;
     overflow-y: auto;
-    background-color: #b8b8b8;
+    background-color: #bbbbbb;
     border-radius: 5px;
     border: 1px solid #111;
     box-shadow: 1px 1px 2px #111;
 }
-#list table{
-    width: 100%;
-    border-collapse: collapse;
-}
-#list th {
+#list-header {
     color: white;
     background-color: #1d006d;
     padding: 5px;
     border: 1px solid #3a11a8;
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
 }
-#list tr {
+#spell-list ul {
+    list-style-type: none;
+    padding: 10px 5px;
     text-align: center;
+    font-size: 12px;
 }
-#list tr:nth-child(even) {
+#spell-list li {
+    border: 1px solid #777;
+    border-top: 0;
+}
+#spell-list li:nth-child(even) {
     background-color: #b2b2b2;
 }
-#list tr:hover {
-    background-color: #1d006d69;
+#spell-list li a {
+    display: flex;
+    text-align: center;
+    justify-content: space-between;
+    text-decoration: none;
+    color: #111;
+    padding: 10px;
+}
+#spell-list li a:hover {
+    background-color: #1d006d31;
     font-weight: bold;
     cursor: pointer;
 }
-#list td {
-    padding: 5px;
-    border: 1px solid #777;
+#spell-list span {
+    width: 33%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 #content {
     width: 50%;
     height: max-content;
+    min-height: 520px;
     max-height: 100%;
     overflow-y: auto;
     background-color: #b8b8b8;
@@ -65,6 +92,7 @@ h1 {
     box-shadow: 1px 1px 2px #111;
     padding: 10px;
     margin: 10px;
+    text-align: center;
 }
 #content h1 {
     text-align: center;
@@ -78,23 +106,37 @@ h1 {
 }
 
 #spell-stats{
+    margin-top: 5px;
     border-top: 2px solid #1d006d;
     border-bottom: 2px solid #1d006d;
     display: flex;
 }
 #spell-stats div{
-    margin: 10px;
     width: 25%;
+    text-align: center;
+    margin: 10px 0px;
 }
 #spell-stats div h2{
-    margin-top: 10px;
-    margin-bottom: 0;
+    margin: 0;
     font-size: 14px;
 }
 #spell-stats div h3{
-    margin: 5px;
+    margin: 5px 0px;
     font-size: 12px;
     font-weight: normal;
+}
+#spell-evolution{
+    margin-top: 20px;
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12px;
+}
+#spell-evolution td{
+    border: 1px solid #777;
+    padding: 5px;
+}
+#spell-evolution tr:hover{
+    background-color: #1d006d3a;
 }
 
 .btn {
@@ -117,4 +159,8 @@ h1 {
     background-image: none;
     border: 1px solid transparent;
     border-radius: 4px;
+}
+
+.hidden {
+    display: none;
 }
