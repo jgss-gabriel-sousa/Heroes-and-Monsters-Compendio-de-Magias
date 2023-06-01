@@ -112,21 +112,43 @@ p {
 }
 #content p {
     margin: 10px;
-    line-height: 1.5;
     text-align: justify;
 }
-
-#spell-stats{
-    margin-top: 5px;
+#content h4 {
+    margin: 5px;
+    margin-top: 10px;
+    font-weight: normal;
+}
+#content > div:nth-child(3){
     border-top: 2px solid #1d006d;
-    border-bottom: 2px solid #1d006d;
+}
+#content table{
+    border: 1px solid #333;
+    border-collapse: collapse;
+    width: 100%;
+}
+#content td,th{
+    border: 1px solid #333;
+    padding: 10px;
+    font-size: 12px;
+    text-align: justify;
+}
+#content th{
+    background-color: #888;
+    text-align: center;
+}
+#content td:first-child{
+    white-space: nowrap;
+}
+
+.spell-stats{
     display: flex;
     justify-content: space-evenly;
 }
 .spell-stats div{
     width: 25%;
     text-align: center;
-    margin: 10px 0px;
+    margin: 5px 0px 10px 0px;
 }
 .spell-stats div h2{
     margin: 0;
