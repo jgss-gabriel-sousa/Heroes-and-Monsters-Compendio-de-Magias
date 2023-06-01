@@ -14,6 +14,11 @@ h1 {
     text-align: center;
 }
 
+p {
+    font-size: 14px;
+    line-height: 1.625;
+}
+
 #interface {
     display: flex;
     justify-content: space-between;
@@ -114,26 +119,34 @@ h1 {
     border-top: 2px solid #1d006d;
     border-bottom: 2px solid #1d006d;
     display: flex;
+    justify-content: space-evenly;
 }
-#spell-stats div{
+.spell-stats div{
     width: 25%;
     text-align: center;
     margin: 10px 0px;
 }
-#spell-stats div h2{
+.spell-stats div h2{
     margin: 0;
     font-size: 14px;
 }
-#spell-stats div h3{
+.spell-stats div h3{
     margin: 5px 0px;
     font-size: 12px;
     font-weight: normal;
+}
+#content hr {
+    border: 1px solid #1d006d;
 }
 #spell-evolution{
     margin-top: 20px;
     width: 100%;
     border-collapse: collapse;
     font-size: 12px;
+}
+#spell-evolution th{
+    border: 1px solid #777;
+    padding: 5px;
 }
 #spell-evolution td{
     border: 1px solid #777;

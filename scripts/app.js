@@ -71,8 +71,8 @@ function updateContent(spellName){
 
     html = `
         <h1>${spell.name}</h1>
-        <small>${classes}</small>
-        <div id="spell-stats">
+        <h4>${classes}</h4>
+        <div class="spell-stats">
             <div>
                 <h2>Círculo</h2>
                 <h3>${spell.magic_circle}º</h3>
