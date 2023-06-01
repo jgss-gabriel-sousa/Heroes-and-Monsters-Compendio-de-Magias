@@ -10,13 +10,13 @@ window.onclick = e => {
 document.querySelector("#name-filter").addEventListener("input", () => {textSort()});
 
 function setSpellLinks(){
-    const menuLinks = document.querySelectorAll('#spell-list a');
+    const menuLinks = document.querySelectorAll("#spell-list a");
 
     function handleLinkClick(event) {
         event.preventDefault();
-        const href = this.getAttribute('href');
+        const href = this.getAttribute("href");
         updateContent(href.slice(1));
-        history.pushState({ href }, '', href);
+        history.pushState({ href }, "", href);
     }
     
     function handlePopState(event) {
@@ -29,8 +29,8 @@ function setSpellLinks(){
     }
 
     menuLinks.forEach(function (link) {
-        link.addEventListener('click', handleLinkClick);
+        link.addEventListener("click", handleLinkClick);
     });
 
-    window.addEventListener('popstate', handlePopState);
+    window.addEventListener("popstate", handlePopState);
 }

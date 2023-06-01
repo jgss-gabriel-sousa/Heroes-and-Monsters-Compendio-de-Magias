@@ -23,7 +23,7 @@ const checkLoading = setInterval(() => {
     }
     else{
         drawList();
-        clearInterval(checkLoading)
+        clearInterval(checkLoading);
         
         document.querySelector("#spell-list").classList.remove("loading");
         document.querySelector("#content").classList.remove("loading");
