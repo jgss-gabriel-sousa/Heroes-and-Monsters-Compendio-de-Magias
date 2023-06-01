@@ -15,6 +15,9 @@ function sanitizeString(string){
 }
 
 const checkLoading = setInterval(() => {
+    document.querySelector("#spell-list").classList.add("loading");
+    document.querySelector("#content").classList.add("loading");
+
     if(spells.length < spell_List.length){
         drawList();
     }
@@ -22,6 +25,9 @@ const checkLoading = setInterval(() => {
         drawList();
         clearInterval(checkLoading)
         
+        document.querySelector("#spell-list").classList.remove("loading");
+        document.querySelector("#content").classList.remove("loading");
+
         setSpellLinks();
     }
 }, 250);

@@ -164,3 +164,9 @@ h1 {
 .hidden {
     display: none;
 }
+
+.loading {
+    background-image: url("/img/spinner.gif");
+    background-repeat: no-repeat;
+    background-position: center;
+}
