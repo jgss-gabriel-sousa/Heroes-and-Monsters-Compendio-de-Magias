@@ -1,3 +1,3 @@
-# Heroes and Monsters - Ficha Dinamica
+# Heroes and Monsters - Compêndio de Magias
  
-Ficha Dinâmica para um Sistema de RPG Próprio
+Compêndio das Magias do RPG de Mesa [Heroes and Monsters](https://linktr.ee/Heroes_and_Monsters)
