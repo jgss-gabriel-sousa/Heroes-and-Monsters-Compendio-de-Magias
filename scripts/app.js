@@ -90,15 +90,38 @@ function updateContent(spellName){
                 <h3>${spell.duration || "Instantânea"}</h3>
             </div>
         </div>
+        <div class="spell-stats">
     `
+
+    if(spell.concentration){
+        html += `   
+        <div>
+            <h2>Exige Concentração</h2>
+        </div>`
+    }
+    if(spell.attack_roll){
+        html += `   
+        <div>
+            <h2>Exige Rolagem de Ataque</h2>
+        </div>`
+    }
+
+    html += "</div><hr>"
 
     spell.description.forEach(e => {
         html += `<p>${e}</p>`
     });
 
+    if(spell.damage.length || spell.heal)
+        html += `<hr>`
+
     spell.damage.forEach(e => {
-        html += `<p>${e[0]}: ${e[1]}</p>`
+        html += `<p><b>${e[0]}:</b> ${e[1]}</p>`
     });
+
+    if(spell.heal){
+        html += `<p><b>Cura:</b> ${spell.heal}</p>`
+    }
 
     if(spell.spell_evolution.length){
         html += `<hr>`
