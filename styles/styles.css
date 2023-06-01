@@ -24,8 +24,12 @@ h1 {
 }
 #filters{
     padding: 10px;
+    color: white;
+    display: flex;
+    align-items: center;
 }
 #filters input{
+    margin: 5px;
     padding: 5px;
 }
 #filters small{
