@@ -10,7 +10,7 @@ window.onclick = e => {
 document.querySelector("#name-filter").addEventListener("input", () => {textSort()});
 
 function setSpellLinks(){
-    const menuLinks = document.querySelectorAll("#spell-list a");
+    const menuLinks = document.querySelectorAll("#spell-list-container a");
 
     function handleLinkClick(event) {
         event.preventDefault();

@@ -1,11 +1,58 @@
-const listElement = document.getElementById("spell-list");
+let spell_List;
+let spells = [];
+
+const API_URL = "https://gp-tycoon-web-service.onrender.com/hnm";
+let loadFromCache = false;
+
+async function getData(){
+    let cachedSpellList = localStorage.getItem("hnm_spell_list");
+    let cacheDate = localStorage.getItem("hnm_spell_list_date");
+    
+    if(cachedSpellList && new Date().getDay() == new Date(cacheDate).getDay()){
+        spell_List = JSON.parse(cachedSpellList);
+        loadFromCache = true;
+    }
+    else{
+        const response = await fetch(API_URL+"/");
+        spell_List = await response.json();
+        spell_List = spell_List.spell;
+        localStorage.setItem("hnm_spell_list", JSON.stringify(spell_List));
+        localStorage.setItem("hnm_spell_list_date", String(new Date()));
+    }
+}
+getData().then(() => {
+    if(loadFromCache && localStorage.getItem("hnm_spells")){
+        spells = JSON.parse(localStorage.getItem("hnm_spells"));
+    }
+    else{
+        spell_List.forEach(async spellName => {
+            let response = await fetch(API_URL+"/query-"+spellName);
+            response = await response.json();
+            spells.push(response);
+            localStorage.setItem("hnm_spells", JSON.stringify(spells));
+            
+            spells.sort((a, b) => {
+                if (a.name < b.name) {
+                    return -1;
+                }
+                if (a.name > b.name) {
+                    return 1;
+                }
+                return 0;
+            });
+        });
+    }
+});
+
+const listElement = document.getElementById("spell-list-container");
 const firstRow = `
+    <div id="list-header">
+        <span class="sort-by-magic-circle">Círculo Mágico</span>
+        <span class="sort-by-name">Nome</span>
+        <span class="sort-by-cast-time">Tempo de Conjuração</span>
+    </div>
+    <div id="spell-list">
     <ul>
-        <li id="list-header">
-            <span class="sort-by-magic-circle">Círculo Mágico</span>
-            <span class="sort-by-name">Nome</span>
-            <span class="sort-by-cast-time">Tempo de Conjuração</span>
-        </li>
 `;
 
 function sanitizeString(string){
@@ -15,17 +62,17 @@ function sanitizeString(string){
 }
 
 const checkLoading = setInterval(() => {
-    document.querySelector("#spell-list").classList.add("loading");
+    document.querySelector("#spell-list-container").classList.add("loading");
     document.querySelector("#content").classList.add("loading");
 
-    if(spells.length < spell_List.length){
+    if(spells.length < spell_List.length-1){
         drawList();
     }
     else{
         drawList();
         clearInterval(checkLoading);
         
-        document.querySelector("#spell-list").classList.remove("loading");
+        document.querySelector("#spell-list-container").classList.remove("loading");
         document.querySelector("#content").classList.remove("loading");
 
         setSpellLinks();
@@ -47,6 +94,8 @@ function drawList(){
         </li>
         `;
     });
+
+    html += `</ul></div>`
 
     listElement.innerHTML = html;
     setSpellLinks();
